@@ -3,5 +3,71 @@
 @section('title', 'Spareparts')
 
 @section('content')
-   
+
+<div class="relative overflow-x-auto bg-neutral-primary-soft shadow-xs rounded-base border border-default">
+    <table class="w-full text-sm text-left rtl:text-right text-body">
+        
+        <thead class="text-sm text-body bg-neutral-secondary-soft border-b rounded-base border-default">
+            <tr>
+                <th class="px-6 py-3 font-medium">No</th>
+                <th class="px-6 py-3 font-medium">Nama</th>
+                <th class="px-6 py-3 font-medium">Stok</th>
+                <th class="px-6 py-3 font-medium">Harga</th>
+                <th class="px-6 py-3 font-medium">Aksi</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            @forelse ($spareparts as $sparepart)
+
+                <tr class="bg-neutral-primary border-b border-default">
+
+                    <td class="px-6 py-4">
+                        {{ $loop->iteration }}
+                    </td>
+
+                    <td class="px-6 py-4 font-medium text-heading">
+                        {{ $sparepart->nama }}
+                    </td>
+
+                    <td class="px-6 py-4">
+                        {{ $sparepart->stok }}
+                    </td>
+
+                    <td class="px-6 py-4">
+                        Rp {{ number_format($sparepart->harga, 0, ',', '.') }}
+                    </td>
+
+                    <td class="px-6 py-4 flex gap-2">
+
+                        <a href="#"
+                           class="text-blue-600 hover:underline">
+                            Edit
+                        </a>
+
+                        <a href="#"
+                           class="text-red-600 hover:underline">
+                            Hapus
+                        </a>
+
+                    </td>
+
+                </tr>
+
+            @empty
+
+                <tr>
+                    <td colspan="5" class="text-center py-6 text-neutral-tertiary">
+                        Data sparepart belum tersedia
+                    </td>
+                </tr>
+
+            @endforelse
+
+        </tbody>
+
+    </table>
+</div>
+
 @endsection

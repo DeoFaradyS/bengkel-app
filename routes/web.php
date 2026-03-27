@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SparepartController;
 
 Route::get('/', function () {
     return view('dashboard', ['title' => 'Dashboard']);
@@ -11,7 +12,4 @@ Route::get('/login', function () {
     return view('auth.login');
 })->name('login');
 
-// ===== SPARE PARTS =====
-Route::get('/spareparts', function () {
-    return view('spareparts.index', ['title' => 'Sparepart']);
-})->name('spareparts.index');
+Route::resource('spareparts', SparepartController::class);
