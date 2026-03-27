@@ -1,7 +1,7 @@
-@extends('layouts.app')
+@extends('layouts.admin')
+
+@section('title', 'Spareparts')
 
 @section('content')
-    
-@include('components.table')
-
+Spareparts content
 @endsection
