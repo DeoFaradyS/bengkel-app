@@ -24,6 +24,9 @@
         {{-- Page Wrapper --}}
         <div class="p-6 flex flex-col gap-4 h-full overflow-y-auto">
 
+            {{-- Header --}}
+            <x-header />
+
             {{-- Page Content --}}
             @yield('content')
 
