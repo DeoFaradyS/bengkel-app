@@ -1,7 +1,7 @@
 
 
 <nav class="bg-neutral-primary w-full z-20 top-0 start-0 border-b border-default">
-  <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+  <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-6">
       <span class="self-center text-2xl text-heading font-semibold whitespace-nowrap">{{ $title }}</span>
 
   <div class="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">

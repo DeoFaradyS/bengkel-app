@@ -1,7 +1,7 @@
-<div class="flex justify-between bg-red-100"> 
+<div class="flex justify-between"> 
 
 {{-- ---- Kiri: Search ---- --}}
-<form class="flex items-center max-w-sm mx-auto space-x-2 bg-red-100">
+<form class="flex items-center space-x-2">
     <label for="simple-search" class="sr-only">Search</label>
     <div class="relative w-full">
         <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
@@ -28,5 +28,5 @@
 
 {{-- ---- Kanan: Button ---- --}}
 <button type="button"
-    class="text-white bg-brand hover:bg-brand-strong box-border border border-transparent focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none">Base</button>
+    class="text-white bg-brand hover:bg-brand-strong box-border border border-transparent focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none">Button</button>
 </div>

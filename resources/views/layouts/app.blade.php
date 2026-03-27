@@ -12,7 +12,7 @@
     @include('components.sidebar')
     <div class="w-full flex flex-col">
         @include('components.navbar', ['title' => $title ?? 'My App'])
-        <div class="p-4 h-screen">
+        <div class="p-6 h-screen flex flex-col gap-4">
             @include('components.header')
             @yield('content')
         </div>
