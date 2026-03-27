@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('dashboard');
+    return view('dashboard', ['title' => 'Dashboard']);
 });
 
 // Tambah ini aja
@@ -13,5 +13,5 @@ Route::get('/login', function () {
 
 // ===== SPARE PARTS =====
 Route::get('/spareparts', function () {
-    return view('spareparts.index');
+    return view('spareparts.index', ['title' => 'Sparepart']);
 })->name('spareparts.index');

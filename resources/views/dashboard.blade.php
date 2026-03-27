@@ -1,6 +1,4 @@
-{{-- Menggunakan layout utama aplikasi --}}
 @extends('layouts.app')
-@section('page-title', 'Dashboard')
 
 @section('content')
     {{-- Konten utama Dashboard (offset sidebar) --}}

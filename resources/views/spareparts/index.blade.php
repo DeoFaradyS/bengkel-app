@@ -1,5 +1,4 @@
 @extends('layouts.app')
-@section('page-title', 'Sparepart')
 
 @section('content')
     {{-- Konten utama Sparepart (offset sidebar) --}}
