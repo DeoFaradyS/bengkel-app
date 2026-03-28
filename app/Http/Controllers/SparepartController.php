@@ -30,7 +30,17 @@ class SparepartController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'nama' => 'required|string|max:255',
+            'stok' => 'required|integer|min:0',
+            'harga' => 'required|numeric|min:0',
+        ]);
+
+        Sparepart::create($validated);
+
+        return redirect()
+            ->route('spareparts.index')
+            ->with('success', 'Sparepart berhasil ditambahkan');
     }
 
     /**
