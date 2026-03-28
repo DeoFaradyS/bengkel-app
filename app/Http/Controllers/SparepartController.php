@@ -70,8 +70,11 @@ class SparepartController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Sparepart $sparepart)
+    public function destroy($id)
     {
-        //
+        $sparepart = Sparepart::findOrFail($id);
+        $sparepart->delete();
+
+        return redirect()->route('spareparts.index')->with('success', 'Sparepart berhasil dihapus!');
     }
 }
