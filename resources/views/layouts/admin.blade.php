@@ -17,23 +17,27 @@
 <body class="bg-neutral-primary-soft flex h-screen overflow-hidden font-sans">
 
     {{-- Sidebar --}}
-    <x-sidebar />
+    <x-sidebar.index />
 
+    {{-- Main Layout Area --}}
     <main class="flex flex-col flex-1 overflow-hidden">
 
-        {{-- Navbar --}}
+        {{-- Top Navigation --}}
         <x-navbar />
 
-        {{-- Page Content Wrapper --}}
-        <div class="p-6 flex flex-col gap-4 h-full overflow-y-auto">
+        {{-- Page Content --}}
+        <section class="p-6 flex flex-col gap-4 h-full overflow-y-auto">
 
             @yield('content')
 
-        </div>
+        </section>
 
     </main>
+
+    @stack('scripts')
 
     <script src="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.js"></script>
 
 </body>
+
 </html>
