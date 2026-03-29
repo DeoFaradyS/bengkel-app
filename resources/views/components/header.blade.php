@@ -3,9 +3,7 @@
     {{-- LEFT SIDE : SEARCH --}}
     <div class="w-full max-w-sm">
 
-        <input type="text" placeholder="Cari sparepart..."
-            class="w-full px-4 py-2 text-sm border border-default rounded-base focus:ring-2 focus:ring-primary focus:outline-none" />
-
+        <x-forms.input placeholder="Cari sparepart..." />
     </div>
 
 
@@ -19,84 +17,21 @@
 
         </button>
 
+        <!-- CREATE BUTTON  -->
+        <x-modal.form-modal id="crud-modal" title="Create new product" action="{{ route('spareparts.store') }}"
+            buttonText="Tambah Sparepart">
 
-        {{-- CREATE BUTTON --}}
+            <div class="space-y-4">
 
+                <x-forms.input name="nama" label="Nama Sparepart" required />
 
-        <!-- Modal toggle -->
-        <button data-modal-target="crud-modal" data-modal-toggle="crud-modal"
-            class="text-white bg-brand box-border border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none"
-            type="button">
-            Tambah Sparepart
-        </button>
+                <x-forms.input name="stok" label="Stok" type="number" required />
 
-        <!-- Main modal -->
-        <div id="crud-modal" tabindex="-1" aria-hidden="true"
-            class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
-            <div class="relative p-4 w-full max-w-md max-h-full">
-                <!-- Modal content -->
-                <div class="relative bg-neutral-primary-soft border border-default rounded-base shadow-sm p-4 md:p-6">
-                    <!-- Modal header -->
-                    <div class="flex items-center justify-between border-b border-default pb-4 md:pb-5">
-                        <h3 class="text-lg font-medium text-heading">
-                            Create new product
-                        </h3>
-                        <button type="button"
-                            class="text-body bg-transparent hover:bg-neutral-tertiary hover:text-heading rounded-base text-sm w-9 h-9 ms-auto inline-flex justify-center items-center"
-                            data-modal-hide="crud-modal">
-                            <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
-                                height="24" fill="none" viewBox="0 0 24 24">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                    stroke-width="2" d="M6 18 17.94 6M18 18 6.06 6" />
-                            </svg>
-                            <span class="sr-only">Close modal</span>
-                        </button>
-                    </div>
-                    <!-- Modal body -->
-                    <form action="{{ route('spareparts.store') }}" method="POST">
-                        @csrf
-                        <div class="grid gap-4 grid-cols-2 py-4 md:py-6">
-                            <!-- nama -->
-                            <div class="col-span-2">
-                                <label for="nama" class="block mb-2.5 text-sm font-medium text-heading">Nama Sparepart</label>
-                                <input type="text" name="nama" id="nama"
-                                    class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body"
-                                    required="">
-                            </div>
-                            <!-- stok -->
-                            <div class="col-span-2 sm:col-span-1">
-                                <label for="stok" class="block mb-2.5 text-sm font-medium text-heading">Stok</label>
-                                <input type="number" name="stok" id="stok"
-                                    class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body"
-                                     required="">
-                            </div>
-                            <!-- harga -->
-                            <div class="col-span-2 sm:col-span-1">
-                                <label for="price" class="block mb-2.5 text-sm font-medium text-heading">Harga</label>
-                                <input type="number" name="harga" id="price"
-                                    class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body"
-                                     required="">
-                            </div>
-                        </div>
-                        <div class="flex items-center space-x-4 border-t border-default pt-4 md:pt-6">
-                            <button type="submit"
-                                class="inline-flex items-center  text-white bg-brand hover:bg-brand-strong box-border border border-transparent focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none">
-                                <svg class="w-4 h-4 me-1.5 -ms-0.5" aria-hidden="true"
-                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
-                                    viewBox="0 0 24 24">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                        stroke-width="2" d="M5 12h14m-7 7V5" />
-                                </svg>
-                                Add new product
-                            </button>
-                            <button data-modal-hide="crud-modal" type="button"
-                                class="text-body bg-neutral-secondary-medium box-border border border-default-medium hover:bg-neutral-tertiary-medium hover:text-heading focus:ring-4 focus:ring-neutral-tertiary shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none">Cancel</button>
-                        </div>
-                    </form>
-                </div>
+                <x-forms.input name="harga" label="Harga" type="number" required />
+
             </div>
-        </div>
 
+        </x-modal.form-modal>
 
     </div>
 

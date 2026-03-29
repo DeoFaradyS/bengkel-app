@@ -4,6 +4,36 @@
 
 @section('content')
 
+<x-layout.page-header>
+
+    <x-slot:left>
+        <x-forms.input placeholder="Cari sparepart..." />
+    </x-slot:left>
+
+    <x-slot:right>
+
+        <button class="px-4 py-2 text-sm border border-default rounded-base hover:bg-neutral-secondary-soft transition">
+            Export
+        </button>
+
+        <x-modal.form-modal
+            id="crud-modal"
+            title="Create new product"
+            action="{{ route('spareparts.store') }}"
+            buttonText="Tambah Sparepart">
+
+            <div class="space-y-4">
+                <x-forms.input name="nama" label="Nama Sparepart" required />
+                <x-forms.input name="stok" label="Stok" type="number" required />
+                <x-forms.input name="harga" label="Harga" type="number" required />
+            </div>
+
+        </x-modal.form-modal>
+
+    </x-slot:right>
+
+</x-layout.page-header>
+
 <div class="relative overflow-x-auto bg-neutral-primary-soft shadow-xs rounded-base border border-default">
     <table class="w-full text-sm text-left rtl:text-right text-body">
         
