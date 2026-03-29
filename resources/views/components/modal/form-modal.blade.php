@@ -2,8 +2,15 @@
     'id',
     'title',
     'action',
-    'buttonText' => 'Tambah Data'
+    'buttonText' => 'Tambah Data',
+    'method'
 ])
+
+@php
+    if (!isset($method)) {
+        throw new Exception('Method prop is required in form-modal component.');
+    }
+@endphp
 
 <!-- Modal toggle -->
 <button
@@ -46,6 +53,8 @@
             <form action="{{ $action }}" method="POST">
 
                 @csrf
+
+                @method($method)
 
                 <div class="pt-4 md:pt-6">
 

@@ -16,7 +16,7 @@
                 Export
             </button>
 
-            <x-modal.form-modal id="crud-modal" title="Create new product" action="{{ route('spareparts.store') }}"
+            <x-modal.form-modal id="crud-modal" title="Create new product" :action="route('spareparts.store')" method="POST"
                 buttonText="Tambah Sparepart">
 
                 <div class="space-y-4">
@@ -61,9 +61,20 @@
 
                 <x-tables.td class="flex gap-2">
 
-                    <a href="#" class="text-blue-600 hover:underline">
-                        Edit
-                    </a>
+                    <x-modal.form-modal :id="'edit-modal-' . $sparepart->id" title="Edit Sparepart"
+                        :action="route('spareparts.update', $sparepart->id)" method="PUT" buttonText="Edit">
+
+                        <div class="space-y-4">
+
+                            <x-forms.input name="nama" label="Nama Sparepart" :value="$sparepart->nama" required />
+
+                            <x-forms.input name="stok" label="Stok" type="number" :value="$sparepart->stok" required />
+
+                            <x-forms.input name="harga" label="Harga" type="number" :value="$sparepart->harga" required />
+
+                        </div>
+
+                    </x-modal.form-modal>
 
                     <x-modal-delete :id="'delete-' . $sparepart->id" :message="'Yakin hapus ' . $sparepart->nama . '?'"
                         :action="route('spareparts.destroy', $sparepart->id)" />
