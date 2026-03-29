@@ -39,28 +39,27 @@
             <th class="px-6 py-3 font-medium">Harga</th>
         </x-slot:header>
 
-
         @forelse ($spareparts as $sparepart)
 
-            <tr class="bg-neutral-primary border-b border-default">
+            <x-tables.tr>
 
-                <td class="px-6 py-4">
+                <x-tables.td>
                     {{ $loop->iteration }}
-                </td>
+                </x-tables.td>
 
-                <td class="px-6 py-4 font-medium text-heading">
+                <x-tables.td class="font-medium text-heading">
                     {{ $sparepart->nama }}
-                </td>
+                </x-tables.td>
 
-                <td class="px-6 py-4">
+                <x-tables.td>
                     {{ $sparepart->stok }}
-                </td>
+                </x-tables.td>
 
-                <td class="px-6 py-4">
+                <x-tables.td>
                     Rp {{ number_format($sparepart->harga, 0, ',', '.') }}
-                </td>
+                </x-tables.td>
 
-                <td class="px-6 py-4 flex gap-2">
+                <x-tables.td class="flex gap-2">
 
                     <a href="#" class="text-blue-600 hover:underline">
                         Edit
@@ -69,9 +68,9 @@
                     <x-modal-delete :id="'delete-' . $sparepart->id" :message="'Yakin hapus ' . $sparepart->nama . '?'"
                         :action="route('spareparts.destroy', $sparepart->id)" />
 
-                </td>
+                </x-tables.td>
 
-            </tr>
+            </x-tables.tr>
 
         @empty
 
@@ -83,6 +82,6 @@
 
         @endforelse
 
-    </x-tables.data-table>  
+    </x-tables.data-table>
 
 @endsection
