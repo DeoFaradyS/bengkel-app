@@ -2,7 +2,6 @@
     'id',
     'title',
     'action',
-    'buttonText' => 'Tambah Data',
     'method'
 ])
 
@@ -11,16 +10,6 @@
         throw new Exception('Method prop is required in form-modal component.');
     }
 @endphp
-
-<!-- Modal toggle -->
-<button
-    data-modal-target="{{ $id }}"
-    data-modal-toggle="{{ $id }}"
-    type="button"
-    class="text-white bg-brand border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5"
->
-    {{ $buttonText }}
-</button>
 
 <!-- Modal -->
 <div id="{{ $id }}"
