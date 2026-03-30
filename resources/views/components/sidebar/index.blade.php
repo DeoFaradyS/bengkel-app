@@ -21,6 +21,10 @@
                 Products
             </x-sidebar.item>
 
+            <x-sidebar.item icon="box">
+                Service
+            </x-sidebar.item>
+
         </ul>
 
     </div>
