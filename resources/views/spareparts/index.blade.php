@@ -44,6 +44,7 @@
             <th class="px-6 py-3 font-medium">Nama</th>
             <th class="px-6 py-3 font-medium">Stok</th>
             <th class="px-6 py-3 font-medium">Harga</th>
+            <th class="px-6 py-3 font-medium">Aksi</th>
         </x-slot:header>
 
         @forelse ($spareparts as $sparepart)
