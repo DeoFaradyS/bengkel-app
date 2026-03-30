@@ -12,13 +12,17 @@
                 Dashboard
             </x-sidebar.item>
 
-            <x-sidebar.item href="#" icon="users">
+            <x-sidebar.item :href="route('users.index')" :active="request()->routeIs('users.*')" icon="users">
                 Users
             </x-sidebar.item>
 
             <x-sidebar.item :href="route('spareparts.index')" :active="request()->routeIs('spareparts.*')"
                 icon="product">
                 Products
+            </x-sidebar.item>
+
+            <x-sidebar.item icon="box">
+                Service
             </x-sidebar.item>
 
         </ul>

@@ -59,12 +59,22 @@ class SparepartController extends Controller
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
+   // Update data
     public function update(Request $request, Sparepart $sparepart)
     {
-        //
+        $request->validate([
+            'nama' => 'required|string|max:255',
+            'stok' => 'required|integer|min:0',
+            'harga' => 'required|integer|min:0',
+        ]);
+
+        $sparepart->update([
+            'nama' => $request->nama,
+            'stok' => $request->stok,
+            'harga' => $request->harga,
+        ]);
+
+        return redirect()->back()->with('success', 'Sparepart berhasil diperbarui!');
     }
 
     /**
