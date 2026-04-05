@@ -18,6 +18,7 @@
     <x-slot:header>
         <th class="px-6 py-3 font-medium">Nama</th>
         <th class="px-6 py-3 font-medium">Email</th>
+        <th class="px-6 py-3 font-medium">Role</th>
     </x-slot:header>
 
     @forelse ($users as $user)
@@ -25,6 +26,7 @@
             <x-tables.td>{{ $loop->iteration }}</x-tables.td>
             <x-tables.td>{{ $user->name }}</x-tables.td>
             <x-tables.td>{{ $user->email }}</x-tables.td>
+            <x-tables.td>{{ $user->role }}</x-tables.td>
         </x-tables.tr>
     @empty
         <tr>

@@ -1,18 +1,47 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\SparepartController;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\SparepartController;
 
+
+// ================= HOME =================
 Route::get('/', function () {
-    return view('dashboard', ['title' => 'Dashboard']);
-})->name('dashboard');
+    return view('home');
+})->name('home');
 
-// Tambah ini aja
-Route::get('/login', function () {
-    return view('auth.login');
-})->name('login');
 
-Route::get('/users', [UserController::class, 'index'])->name('users.index');
+// ================= AUTH =================
+Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
+Route::post('/login', [AuthController::class, 'login']);
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
-Route::resource('spareparts', SparepartController::class);
+
+// ================= USER =================
+Route::prefix('user')
+    ->middleware(['auth', 'role:user'])
+    ->name('user.')
+    ->group(function () {
+
+        Route::get('/dashboard', function () {
+            return view('user.dashboard.index');
+        })->name('dashboard');
+
+    });
+
+
+// ================= ADMIN =================
+Route::prefix('admin')
+    ->middleware(['auth', 'role:admin'])
+    ->name('admin.')
+    ->group(function () {
+
+        Route::get('/dashboard', function () {
+            return view('admin.dashboard');
+        })->name('dashboard');
+
+        Route::resource('users', UserController::class)->only(['index']);
+
+        Route::resource('spareparts', SparepartController::class);
+    });
