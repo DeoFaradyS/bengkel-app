@@ -5,13 +5,6 @@
 @section('content')
 
 <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen">
-
-    <a href="#" class="flex items-center mb-8 text-2xl font-semibold text-gray-900">
-        <img class="w-8 h-8 mr-2"
-            src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/logo.svg" alt="logo">
-        Flowbite
-    </a>
-
     <div class="w-full bg-white rounded-lg shadow sm:max-w-md">
         <div class="p-6 space-y-5 sm:p-8">
 
