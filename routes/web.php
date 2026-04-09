@@ -5,18 +5,17 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\SparepartController;
 
-
 // ================= HOME =================
 Route::get('/', function () {
     return view('home');
 })->name('home');
 
-
 // ================= AUTH =================
 Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
+Route::get('/register', [AuthController::class, 'showRegister'])->name('register');
+Route::post('/register', [AuthController::class, 'register']);
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
-
 
 // ================= USER =================
 Route::prefix('user')
@@ -28,8 +27,10 @@ Route::prefix('user')
             return view('user.dashboard.index');
         })->name('dashboard');
 
+        Route::get('/booking', function () {
+            return view('user.booking.index');
+        })->name('booking.index');
     });
-
 
 // ================= ADMIN =================
 Route::prefix('admin')
@@ -42,6 +43,5 @@ Route::prefix('admin')
         })->name('dashboard');
 
         Route::resource('users', UserController::class)->only(['index']);
-
         Route::resource('spareparts', SparepartController::class);
     });

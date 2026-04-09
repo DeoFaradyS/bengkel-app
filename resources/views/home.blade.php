@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,14 +17,13 @@
 <body class="bg-white font-[Inter]">
 
     {{-- NAVBAR --}}
-    <nav class="flex justify-between items-center px-8 py-4 text-white">
+    <nav class="flex justify-between items-center px-8 py-4 text-black">
         <h1 class="text-xl font-bold">Bengkel App</h1>
 
         <div class="flex items-center space-x-4">
 
             @guest
-                <a href="{{ route('login') }}"
-                    class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg">
+                <a href="{{ route('login') }}" class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg">
                     Login
                 </a>
             @endguest
@@ -57,21 +57,18 @@
         <div class="flex flex-col items-center space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4 justify-center">
 
             @guest
-                <a href="{{ route('login') }}"
-                    class="px-6 py-3 text-white bg-blue-600 rounded-lg hover:bg-blue-700">
+                <a href="{{ route('login') }}" class="px-6 py-3 text-white bg-blue-600 rounded-lg hover:bg-blue-700">
                     Login Sekarang
                 </a>
             @endguest
 
             @auth
                 @if(auth()->user()->role === 'admin')
-                    <a href="/dashboard"
-                        class="px-6 py-3 text-white bg-green-600 rounded-lg hover:bg-green-700">
+                    <a href="/dashboard" class="px-6 py-3 text-white bg-green-600 rounded-lg hover:bg-green-700">
                         Masuk Dashboard Admin
                     </a>
                 @else
-                    <a href="/home"
-                        class="px-6 py-3 text-white bg-green-600 rounded-lg hover:bg-green-700">
+                    <a href="/home" class="px-6 py-3 text-white bg-green-600 rounded-lg hover:bg-green-700">
                         Masuk Dashboard User
                     </a>
                 @endif
@@ -87,4 +84,5 @@
     </footer>
 
 </body>
+
 </html>

@@ -1,6 +1,6 @@
 @extends('layouts.auth')
 
-@section('title', 'Login')
+@section('title', 'Register')
 
 @section('content')
 
@@ -9,10 +9,10 @@
         <div class="p-6 space-y-5 sm:p-8">
 
             <h1 class="text-xl font-bold text-gray-900 md:text-2xl">
-                Sign in to your account
+                Create an account
             </h1>
 
-            <form method="POST" action="{{ route('login') }}" class="space-y-5">
+            <form method="POST" action="{{ route('register') }}" class="space-y-5">
                 @csrf
 
                 @if ($errors->any())
@@ -21,24 +21,25 @@
                     </div>
                 @endif
 
+                <x-forms.input name="name" label="Full Name" type="text" required />
                 <x-forms.input name="email" label="Email" type="email" required />
                 <x-forms.input name="password" label="Password" type="password" required />
+                <x-forms.input name="password_confirmation" label="Confirm Password" type="password" required />
 
                 <x-ui.button type="submit" variant="primary" class="w-full">
-                    Sign in
+                    Register
                 </x-ui.button>
 
                 <p class="text-sm text-gray-500">
-                    Don’t have an account yet?
-                    <a href="{{ route('register') }}" class="font-medium text-primary-600 hover:underline">
-                        Sign up
+                    Already have an account?
+                    <a href="{{ route('login') }}" class="font-medium text-primary-600 hover:underline">
+                        Sign in
                     </a>
                 </p>
 
             </form>
         </div>
     </div>
-
 </div>
 
 @endsection
