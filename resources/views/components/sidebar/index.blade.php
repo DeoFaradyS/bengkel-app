@@ -27,7 +27,7 @@
                         :href="route('admin.users.index')" 
                         :active="request()->routeIs('admin.users.*')" 
                         icon="users">
-                        Users
+                        Employee
                     </x-sidebar.item>
 
                     <x-sidebar.item 
