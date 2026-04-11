@@ -4,10 +4,12 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\SparepartController;
+use App\Http\Controllers\Admin\BookingController;
+
 
 // ================= HOME =================
 Route::get('/', function () {
-    return view('home');
+    return view('index');
 })->name('home');
 
 // ================= AUTH =================
@@ -27,9 +29,9 @@ Route::prefix('user')
             return view('user.dashboard.index');
         })->name('dashboard');
 
-        Route::get('/booking', function () {
-            return view('user.booking.index');
-        })->name('booking.index');
+        // 🔥 FIX INI
+        Route::get('/booking', [BookingController::class, 'index'])
+            ->name('booking.index');
     });
 
 // ================= ADMIN =================
@@ -44,4 +46,18 @@ Route::prefix('admin')
 
         Route::resource('users', UserController::class)->only(['index']);
         Route::resource('spareparts', SparepartController::class);
+
+        // ✅ FIXED
+        Route::get('/bookings', [BookingController::class, 'index'])
+            ->name('bookings');
+
+        Route::get('/bookings/{id}', [BookingController::class, 'show'])
+            ->name('bookings.show');
+
+        Route::patch('/bookings/{id}/{status}', [BookingController::class, 'updateStatus'])
+            ->name('bookings.updateStatus');
+
+        Route::get('/finances', function () {
+            return view('admin.finances.index');
+        })->name('finances');
     });

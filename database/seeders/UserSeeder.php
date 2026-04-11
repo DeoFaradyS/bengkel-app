@@ -10,13 +10,14 @@ class UserSeeder extends Seeder
 {
     public function run(): void
     {
-        User::truncate();
+        // User::truncate();
 
         User::insert([
             [
                 'name' => 'Admin',
                 'email' => 'admin@example.com',
-                'password' => Hash::make('12345678'), // password default
+                'password' => Hash::make('12345678'),
+                'role' => 'admin', // ✅ ini penting
                 'email_verified_at' => now(),
                 'remember_token' => \Str::random(10),
                 'created_at' => now(),
@@ -26,6 +27,7 @@ class UserSeeder extends Seeder
                 'name' => 'John Doe',
                 'email' => 'john@example.com',
                 'password' => Hash::make('12345678'),
+                'role' => 'user', // ✅
                 'email_verified_at' => now(),
                 'remember_token' => \Str::random(10),
                 'created_at' => now(),
@@ -35,6 +37,7 @@ class UserSeeder extends Seeder
                 'name' => 'Jane Doe',
                 'email' => 'jane@example.com',
                 'password' => Hash::make('12345678'),
+                'role' => 'user', // ✅
                 'email_verified_at' => now(),
                 'remember_token' => \Str::random(10),
                 'created_at' => now(),
