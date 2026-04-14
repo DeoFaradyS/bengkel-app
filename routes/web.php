@@ -9,7 +9,7 @@ use App\Http\Controllers\Admin\BookingController;
 
 // ================= HOME =================
 Route::get('/', function () {
-    return view('index');
+    return view('home.index');
 })->name('home');
 
 // ================= AUTH =================
@@ -61,3 +61,7 @@ Route::prefix('admin')
             return view('admin.finances.index');
         })->name('finances');
     });
+
+Route::get('/test-500', function () {
+    abort(500);
+});

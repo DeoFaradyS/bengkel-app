@@ -23,7 +23,7 @@
     <main class="flex flex-col flex-1 overflow-hidden">
 
         {{-- Top Navigation --}}
-        <x-navbar />
+        <x-navbar.dashboard />
 
         {{-- Page Content --}}
         <section class="p-6 flex flex-col gap-4 h-full overflow-y-auto">

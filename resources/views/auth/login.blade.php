@@ -1,10 +1,15 @@
-@extends('layouts.auth')
+@extends('layouts.app')
 
 @section('title', 'Login')
+@section('body-class', 'bg-gray-50')
 
 @section('content')
 
 <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen">
+
+<a href="{{ route('home') }}" class="mb-6 text-2xl font-semibold text-black">
+        Motorium
+    </a>
     <div class="w-full bg-white rounded-lg shadow sm:max-w-md">
         <div class="p-6 space-y-5 sm:p-8">
 

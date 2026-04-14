@@ -5,22 +5,17 @@
     'iconPosition' => 'left',
     'iconOnly' => false,
     'disabled' => false,
-    'type' => 'button'
+    'type' => 'button',
+    'href' => null
 ])
 
 @php
-
-    $base =
-        'font-medium rounded-base transition focus:ring-4 shadow-xs inline-flex items-center justify-center gap-2';
+    $base = 'inline-flex items-center justify-center gap-2 font-medium rounded-base transition focus:ring-4 shadow-xs';
 
     $variants = [
-        'default' => 'text-white bg-brand border border-transparent hover:bg-brand-strong focus:ring-brand-medium',
-
-        'outline' => 'text-body bg-transparent border border-default hover:bg-neutral-secondary-soft',
-
+        'default' => 'text-white bg-brand hover:bg-brand-strong focus:ring-brand-medium',
+        'outline' => 'text-body border border-default hover:bg-neutral-secondary-soft',
         'pill' => 'text-white bg-brand rounded-full px-5 hover:bg-brand-strong focus:ring-brand-medium',
-
-        'icon' => 'text-body bg-neutral-secondary-medium border border-default hover:bg-neutral-tertiary-medium'
     ];
 
     $sizes = [
@@ -35,38 +30,43 @@
         'lg' => 'p-3'
     ];
 
-    $disabledClass = $disabled
-        ? 'opacity-50 cursor-not-allowed pointer-events-none'
-        : '';
-
-@endphp
-
-    
- 
- <button
- type="{{ $type }}"
-    {{ $attributes->merge([
-    'class' =>
-        $base . ' ' .
+    $classes = $base . ' ' .
         ($variants[$variant] ?? $variants['default']) . ' ' .
         ($iconOnly
             ? ($iconSizes[$size] ?? $iconSizes['md'])
             : ($sizes[$size] ?? $sizes['md'])
         ) . ' ' .
-        $disabledClass
-]) }}
-    >
+        ($disabled ? 'opacity-50 cursor-not-allowed pointer-events-none' : '');
+@endphp
 
+
+@if ($href)
+    <a href="{{ $href }}" {{ $attributes->merge(['class' => $classes]) }}>
+@else
+    <button type="{{ $type }}" {{ $attributes->merge(['class' => $classes]) }}>
+@endif
+
+    {{-- Icon Left --}}
     @if ($icon && $iconPosition === 'left')
-        {!! $icon !!}
+        <span class="flex items-center">
+            {!! $icon !!}
+        </span>
     @endif
 
-@if (!$iconOnly)
-    {{ $slot }}
-@endif
+    {{-- Text --}}
+    @unless($iconOnly)
+        <span>{{ $slot }}</span>
+    @endunless
 
-@if ($icon && $iconPosition === 'right')
-    {!! $icon !!}
-@endif
+    {{-- Icon Right --}}
+    @if ($icon && $iconPosition === 'right')
+        <span class="flex items-center">
+            {!! $icon !!}
+        </span>
+    @endif
 
-</button>
+@if ($href)
+    </a>
+@else
+    </button>
+@endif
