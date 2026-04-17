@@ -1,4 +1,4 @@
-<section class="px-6 lg:px-10 bg-amber-200">
+<section class="px-6 lg:px-10">
     <div class="relative min-h-[70vh] lg:min-h-[80vh] rounded-2xl overflow-hidden flex items-end justify-center text-center">
 
         {{-- Background Image --}}
