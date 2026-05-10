@@ -2,7 +2,7 @@
     class="top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0"
     aria-label="Sidebar">
 
-    <div class="flex flex-col h-full px-3 py-4 bg-neutral-primary-soft border-e border-default">
+    <div class="flex flex-col h-full px-5 py-4 bg-neutral-primary-soft border-e border-default">
 
         <x-sidebar.logo />
         <hr class="border-default" />
