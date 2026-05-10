@@ -9,36 +9,28 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
 
-    <title>@yield('title', 'Admin Panel')</title>
+    <title>{{ $title ?? 'Dashboard' }}</title>
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
 <body class="bg-neutral-secondary flex h-screen overflow-hidden font-sans">
 
-    {{-- Sidebar --}}
     <x-sidebar.index />
 
-    {{-- Main Layout Area --}}
     <main class="flex flex-col flex-1 overflow-hidden">
 
-        {{-- Top Navigation --}}
-        <x-navbar.dashboard />
+        <x-navbar.dashboard :title="$title ?? 'Dashboard'" />
 
-        {{-- Page Content --}}
-        <section class="p-6 flex flex-col gap-4 h-full overflow-y-auto">
-
-            @yield('content')
-
+        <section class="p-5 flex flex-col gap-5 h-full overflow-y-auto">
+            {{ $slot }}
         </section>
 
     </main>
 
-    <!-- ApexCharts (WAJIB buat Flowbite chart) -->
+    <x-toast />
+
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-
-    @stack('scripts')
-
     <script src="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.js"></script>
 
 </body>

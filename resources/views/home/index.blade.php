@@ -1,13 +1,10 @@
-@extends('layouts.app')
+<x-layouts.app title="Home">
 
-@section('title', 'Home')
-@section('body-class', 'bg-white')
+    <x-navbar.main />
 
-@section('content')
-<x-navbar.main />
-<div class="flex flex-col gap-10">
-    @include('home.hero')
-    @include('home.benefits')
+    <div class="flex flex-col gap-10">
+        @include('home.hero')
+        @include('home.benefits')
+    </div>
 
-</div>
-@endsection
+</x-layouts.app>

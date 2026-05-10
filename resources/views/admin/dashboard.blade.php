@@ -1,8 +1,6 @@
-@extends('layouts.dashboard')
+<x-layouts.dashboard title="Dashboard">
+    <x-header title="Dashboard" description="Welcome to the admin dashboard" />
 
-@section('title', 'Dashboard')
-
-@section('content')
     <div class="space-y-6">
 
         {{-- CARD --}}

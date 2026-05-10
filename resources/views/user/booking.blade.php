@@ -1,8 +1,6 @@
-@extends('layouts.dashboard')
+<x-layouts.dashboard title="Booking">
 
-@section('content')
-
-    <x-header.index title="Booking" description="View and manage your service bookings" />>
+    <x-header title="Booking" description="View and manage your service bookings" />
 
     <x-tables.data-table>
         <x-slot:header>
@@ -22,11 +20,10 @@
 
                 <x-tables.td>
                     <span class="px-2 py-1 text-xs rounded
-                            @if($booking->status == 'pending') bg-yellow-100 text-yellow-700
-                            @elseif($booking->status == 'process') bg-blue-100 text-blue-700
-                            @else bg-green-100 text-green-700
-                            @endif
-                        ">
+                        @if($booking->status == 'pending') bg-yellow-100 text-yellow-700
+                        @elseif($booking->status == 'process') bg-blue-100 text-blue-700
+                        @else bg-green-100 text-green-700
+                        @endif">
                         {{ ucfirst($booking->status) }}
                     </span>
                 </x-tables.td>
@@ -41,4 +38,4 @@
 
     </x-tables.data-table>
 
-@endsection
+</x-layouts.dashboard>

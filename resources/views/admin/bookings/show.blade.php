@@ -1,43 +1,54 @@
-@extends('layouts.dashboard')
+<x-layouts.dashboard title="Detail Booking">
 
-@section('title', 'Detail Booking')
+    <x-header title="Detail Booking" description="View and manage booking details" />
 
-@section('content')
+    <div class="bg-white rounded-xl border border-default p-6">
 
-<div class="bg-white p-6 rounded-xl shadow">
+        <div class="space-y-3">
+            <div class="flex gap-2">
+                <span class="text-sm text-body w-32">Nama</span>
+                <span class="text-sm font-medium text-heading">{{ $booking->user->name }}</span>
+            </div>
+            <div class="flex gap-2">
+                <span class="text-sm text-body w-32">Email</span>
+                <span class="text-sm font-medium text-heading">{{ $booking->user->email }}</span>
+            </div>
+            <div class="flex gap-2">
+                <span class="text-sm text-body w-32">Kendaraan</span>
+                <span class="text-sm font-medium text-heading">{{ $booking->vehicle_type }}</span>
+            </div>
+            <div class="flex gap-2">
+                <span class="text-sm text-body w-32">Tanggal</span>
+                <span class="text-sm font-medium text-heading">{{ $booking->booking_date }}</span>
+            </div>
+            <div class="flex gap-2">
+                <span class="text-sm text-body w-32">Jam</span>
+                <span class="text-sm font-medium text-heading">{{ $booking->booking_time }}</span>
+            </div>
+            <div class="flex gap-2">
+                <span class="text-sm text-body w-32">Keluhan</span>
+                <span class="text-sm font-medium text-heading">{{ $booking->complaint }}</span>
+            </div>
+            <div class="flex gap-2">
+                <span class="text-sm text-body w-32">Status</span>
+                <span class="text-sm font-medium text-heading">{{ ucfirst($booking->status) }}</span>
+            </div>
+        </div>
 
-    <h2 class="text-lg font-semibold mb-4">Detail Booking</h2>
+        <div class="mt-6 flex gap-2">
+            <form action="{{ route('admin.bookings.updateStatus', [$booking->id, 'process']) }}" method="POST">
+                @csrf
+                @method('PATCH')
+                <x-ui.button type="submit" variant="default" size="sm">Process</x-ui.button>
+            </form>
 
-    <div class="space-y-2">
-        <p><strong>Nama:</strong> {{ $booking->user->name }}</p>
-        <p><strong>Email:</strong> {{ $booking->user->email }}</p>
-        <p><strong>Kendaraan:</strong> {{ $booking->vehicle_type }}</p>
-        <p><strong>Tanggal:</strong> {{ $booking->booking_date }}</p>
-        <p><strong>Jam:</strong> {{ $booking->booking_time }}</p>
-        <p><strong>Keluhan:</strong> {{ $booking->complaint }}</p>
-        <p><strong>Status:</strong> {{ $booking->status }}</p>
+            <form action="{{ route('admin.bookings.updateStatus', [$booking->id, 'done']) }}" method="POST">
+                @csrf
+                @method('PATCH')
+                <x-ui.button type="submit" variant="success" size="sm">Done</x-ui.button>
+            </form>
+        </div>
+
     </div>
 
-    <div class="mt-6 flex gap-2">
-
-        <form action="{{ route('admin.bookings.updateStatus', [$booking->id, 'process']) }}" method="POST">
-            @csrf
-            @method('PATCH')
-            <button class="bg-blue-500 text-white px-4 py-2 rounded">
-                Process
-            </button>
-        </form>
-
-        <form action="{{ route('admin.bookings.updateStatus', [$booking->id, 'done']) }}" method="POST">
-            @csrf
-            @method('PATCH')
-            <button class="bg-green-500 text-white px-4 py-2 rounded">
-                Done
-            </button>
-        </form>
-
-    </div>
-
-</div>
-
-@endsection
+</x-layouts.dashboard>

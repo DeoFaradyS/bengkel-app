@@ -1,8 +1,4 @@
-@extends('layouts.dashboard')
 
-@section('title', ($title ?? 'Halaman') . ' — Segera Hadir')
-
-@section('content')
 
     <div class="flex flex-col items-center justify-center min-h-[60vh] text-center px-4">
 
@@ -23,4 +19,3 @@
 
     </div>
 
-@endsection
