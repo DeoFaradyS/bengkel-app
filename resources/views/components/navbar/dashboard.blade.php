@@ -5,17 +5,10 @@
 @endphp
 
 <nav class="bg-white w-full z-20 top-0 start-0 border-b border-default">
-    <div class="flex items-center justify-between px-4 py-3">
+    <div class="flex items-center justify-end px-4 py-3">
 
-        {{-- Page Title --}}
-        <span class="text-base font-semibold text-heading">
-            {{ $title ?? 'Dashboard' }}
-        </span>
-
-        {{-- Right: Bell + Divider + User --}}
         <div class="flex items-center gap-3">
 
-            {{-- Bell --}}
             <button type="button" class="p-2 text-body rounded-base hover:bg-neutral-secondary">
                 <span class="sr-only">Notifications</span>
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24"
