@@ -1,18 +1,8 @@
 @extends('layouts.dashboard')
 
-@section('title', 'Booking Service')
-
 @section('content')
 
-    <x-layout.page-header>
-        <x-slot:left>
-            <x-forms.input placeholder="Cari booking..." />
-        </x-slot:left>
-
-        <x-slot:right>
-            <x-ui.button variant="outline">Export</x-ui.button>
-        </x-slot:right>
-    </x-layout.page-header>
+    <x-header.index title="Booking" />
 
     <x-tables.data-table>
         <x-slot:header>

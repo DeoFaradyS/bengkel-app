@@ -148,43 +148,9 @@
             ],
         ]);
     @endphp
+    <x-header.index title="Sparepart" description="">
 
-
-    <x-layout.page-header>
-
-        <x-slot:left>
-            <x-forms.input placeholder="Cari sparepart..." />
-        </x-slot:left>
-
-        <x-slot:right>
-
-            <x-ui.button variant="outline">
-                Export
-            </x-ui.button>
-
-            <x-ui.button data-modal-target="crud-modal" data-modal-toggle="crud-modal" :icon='
-    "<svg class=\"w-6 h-6\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 24 24\">
-    <path stroke=\"currentColor\" stroke-width=\"2\" d=\"M5 12h14m-7 7V5\"/>
-    </svg>"
-    '>
-                Tambah Sparepart
-            </x-ui.button>
-
-
-            <x-modal.form-modal id="crud-modal" title="Create Sparepart" :action="route('admin.spareparts.store')"
-                method="POST">
-
-                <div class="space-y-4">
-                    <x-forms.input name="nama" label="Nama Sparepart" required />
-                    <x-forms.input name="stok" label="Stok" type="number" required />
-                    <x-forms.input name="harga" label="Harga" type="number" required />
-                </div>
-
-            </x-modal.form-modal>
-
-        </x-slot:right>
-
-    </x-layout.page-header>
+    </x-header.index>
 
 
 

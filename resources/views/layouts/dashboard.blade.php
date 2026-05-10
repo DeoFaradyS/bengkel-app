@@ -14,7 +14,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="bg-neutral-primary-soft flex h-screen overflow-hidden font-sans">
+<body class="bg-neutral-secondary flex h-screen overflow-hidden font-sans">
 
     {{-- Sidebar --}}
     <x-sidebar.index />
