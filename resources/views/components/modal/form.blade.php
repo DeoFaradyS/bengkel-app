@@ -56,7 +56,7 @@
                 </div>
 
                 <!-- FOOTER -->
-                <div class="flex items-center gap-3 border-t border-default pt-4 md:pt-6">
+<div class="flex items-center gap-3 border-t border-default pt-4 md:pt-6 mt-4 md:mt-6">
 
                     <x-button type="submit">
                         {{ $submitLabel }}
