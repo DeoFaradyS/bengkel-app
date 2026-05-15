@@ -15,7 +15,7 @@
             </div>
             <div class="flex gap-2">
                 <span class="text-sm text-body w-32">Kendaraan</span>
-                <span class="text-sm font-medium text-heading">{{ $booking->vehicle_type }}</span>
+                <span class="text-sm font-medium text-heading">{{ ucword($booking->type) }}</span>
             </div>
             <div class="flex gap-2">
                 <span class="text-sm text-body w-32">Tanggal</span>
@@ -39,13 +39,13 @@
             <form action="{{ route('admin.bookings.updateStatus', [$booking->id, 'process']) }}" method="POST">
                 @csrf
                 @method('PATCH')
-                <x-ui.button type="submit" variant="default" size="sm">Process</x-ui.button>
+                <x-button type="submit" variant="default" size="sm">Process</x-button>
             </form>
 
             <form action="{{ route('admin.bookings.updateStatus', [$booking->id, 'done']) }}" method="POST">
                 @csrf
                 @method('PATCH')
-                <x-ui.button type="submit" variant="success" size="sm">Done</x-ui.button>
+                <x-button type="submit" variant="success" size="sm">Done</x-button>
             </form>
         </div>
 

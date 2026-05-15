@@ -27,9 +27,9 @@
                     <x-forms.input name="password" label="Password" type="password" required />
                     <x-forms.input name="password_confirmation" label="Confirm Password" type="password" required />
 
-                    <x-ui.button type="submit" variant="default" class="w-full">
+                    <x-button type="submit" variant="default" class="w-full">
                         Register
-                    </x-ui.button>
+                    </x-button>
 
                     <p class="text-sm text-gray-500 text-center">
                         Already have an account?

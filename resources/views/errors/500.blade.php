@@ -6,8 +6,8 @@
             <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-3">Internal Server Error</h2>
             <p class="text-gray-500 mb-8">Something went wrong on our end. We're working to fix it. Please try again.</p>
             <div class="flex justify-center gap-3">
-                <x-ui.button onclick="window.location.reload()">🔄 Try Again</x-ui.button>
-                <x-ui.button href="{{ url('/') }}" variant="outline">Back to Home</x-ui.button>
+                <x-button onclick="window.location.reload()">🔄 Try Again</x-button>
+                <x-button href="{{ url('/') }}" variant="outline">Back to Home</x-button>
             </div>
         </div>
     </section>

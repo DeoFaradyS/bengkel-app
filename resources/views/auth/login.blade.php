@@ -25,9 +25,9 @@
                     <x-forms.input name="email" label="Email" type="email" required />
                     <x-forms.input name="password" label="Password" type="password" required />
 
-                    <x-ui.button type="submit" variant="primary" class="w-full">
+                    <x-button type="submit" variant="primary" class="w-full">
                         Sign in
-                    </x-ui.button>
+                    </x-button>
 
                     <p class="text-sm text-gray-500">
                         Don't have an account yet?

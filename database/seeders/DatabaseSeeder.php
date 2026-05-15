@@ -12,6 +12,7 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             SparepartSeeder::class,
             BookingSeeder::class,
+            VehicleSeeder::class,
         ]);
     }
 }

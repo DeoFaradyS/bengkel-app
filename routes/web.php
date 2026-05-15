@@ -11,7 +11,7 @@ use App\Http\Controllers\Admin\SparepartController;
 // use App\Http\Controllers\Admin\ProductController;
 // use App\Http\Controllers\Admin\ServiceController;
 // use App\Http\Controllers\Admin\CustomerController;
-// use App\Http\Controllers\User\VehicleController;
+use App\Http\Controllers\User\VehicleController;
 use App\Http\Controllers\User\ProfileController;
 
 
@@ -46,8 +46,9 @@ Route::prefix('user')
 
         Route::get('/bookings', [BookingController::class, 'index'])->name('bookings.index');
 
-        // TODO: buat UserVehicleController
-        Route::get('/vehicles', fn () => view('coming-soon', ['title' => 'Vehicle']))->name('vehicles.index');
+        // Vehicles
+        Route::resource('vehicles', VehicleController::class)
+            ->only(['index', 'store', 'update', 'destroy']);
 
         // Profile
         Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
@@ -64,7 +65,7 @@ Route::prefix('admin')
     ->name('admin.')
     ->group(function () {
 
-        Route::get('/dashboard', fn () => view('admin.dashboard'))->name('dashboard');
+        Route::get('/dashboard', fn() => view('admin.dashboard'))->name('dashboard');
 
         // Users
         Route::resource('users', UserController::class)->only(['index']);
@@ -77,16 +78,16 @@ Route::prefix('admin')
         Route::patch('/bookings/{id}/{status}', [BookingController::class, 'updateStatus'])->name('bookings.updateStatus');
 
         // TODO: buat FinanceController
-        Route::get('/finances', fn () => view('coming-soon', ['title' => 'Finance']))->name('finances.index');
+        Route::get('/finances', fn() => view('coming-soon', ['title' => 'Finance']))->name('finances.index');
 
         // TODO: buat ProductController
-        Route::get('/products', fn () => view('coming-soon', ['title' => 'Product']))->name('products.index');
+        Route::get('/products', fn() => view('coming-soon', ['title' => 'Product']))->name('products.index');
 
         // TODO: buat ServiceController
-        Route::get('/services', fn () => view('coming-soon', ['title' => 'Service']))->name('services.index');
+        Route::get('/services', fn() => view('coming-soon', ['title' => 'Service']))->name('services.index');
 
         // TODO: buat CustomerController
-        Route::get('/customers', fn () => view('coming-soon', ['title' => 'Customer']))->name('customers.index');
+        Route::get('/customers', fn() => view('coming-soon', ['title' => 'Customer']))->name('customers.index');
 
     });
 
@@ -95,6 +96,6 @@ Route::prefix('admin')
 // DEBUG (local only)
 // =====================================================================
 if (app()->environment('local')) {
-    Route::get('/test-500', fn () => abort(500));
-    Route::get('/test-404', fn () => abort(404));
+    Route::get('/test-500', fn() => abort(500));
+    Route::get('/test-404', fn() => abort(404));
 }

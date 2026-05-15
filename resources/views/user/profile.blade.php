@@ -29,14 +29,14 @@
             {{-- Actions --}}
             <div class="flex items-center gap-2">
                 <label for="avatar-upload">
-                    <x-ui.button as="span" variant="default" size="sm">
+                    <x-button as="span" variant="default" size="sm">
 
                         Upload picture
-                    </x-ui.button>
+                    </x-button>
                 </label>
                 <input id="avatar-upload" type="file" class="hidden" accept="image/*" />
 
-                <x-ui.button variant="outline" size="sm">Delete</x-ui.button>
+                <x-button variant="outline" size="sm">Delete</x-button>
             </div>
 
         </div>
@@ -62,9 +62,9 @@
                     </div>
 
                     <div>
-                        <x-ui.button type="submit" variant="default">
+                        <x-button type="submit" variant="default">
                             Save changes
-                        </x-ui.button>
+                        </x-button>
                     </div>
 
                 </div>

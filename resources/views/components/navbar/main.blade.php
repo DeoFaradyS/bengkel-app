@@ -20,13 +20,13 @@
 
                 {{-- Guest --}}
                 @guest
-                    <x-ui.button href="{{ route('login') }}" variant="outline" size="md">
+                    <x-button href="{{ route('login') }}" variant="outline" size="md">
                         Login
-                    </x-ui.button>
+                    </x-button>
 
-                    <x-ui.button href="{{ route('register') }}" variant="default" size="md">
+                    <x-button href="{{ route('register') }}" variant="default" size="md">
                         Register
-                    </x-ui.button>
+                    </x-button>
                 @endguest
 
                 {{-- Auth --}}

@@ -43,11 +43,8 @@ class UserSeeder extends Seeder
 
         foreach ($users as $data) {
             User::updateOrCreate(
-                ['email' => $data['email']], // cek email unik
-                array_merge($data, [
-                    'email_verified_at' => now(),
-                    'remember_token' => Str::random(10),
-                ])
+                ['email' => $data['email']],
+                $data
             );
         }
     }

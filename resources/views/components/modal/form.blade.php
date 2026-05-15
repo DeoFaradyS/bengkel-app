@@ -2,7 +2,9 @@
     'id',
     'title',
     'action',
-    'method'
+    'method',
+    'submitLabel' => 'Simpan',
+    'cancelLabel' => 'Cancel',
 ])
 
 @php
@@ -12,10 +14,12 @@
 @endphp
 
 <!-- Modal -->
-<div id="{{ $id }}"
+<div
+    id="{{ $id }}"
     tabindex="-1"
     aria-hidden="true"
-    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full"
+>
 
     <div class="relative p-4 w-full max-w-md max-h-full">
 
@@ -30,10 +34,13 @@
 
                 <button
                     type="button"
-                    class="text-body hover:bg-neutral-tertiary rounded-base text-sm w-9 h-9 inline-flex justify-center items-center"
+                    class="text-body hover:bg-neutral-tertiary hover:text-heading rounded-base text-sm w-9 h-9 inline-flex justify-center items-center"
                     data-modal-hide="{{ $id }}"
                 >
-                    ✕
+                    <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18 17.94 6M18 18 6.06 6"/>
+                    </svg>
+                    <span class="sr-only">Tutup modal</span>
                 </button>
 
             </div>
@@ -42,32 +49,22 @@
             <form action="{{ $action }}" method="POST">
 
                 @csrf
-
                 @method($method)
 
                 <div class="pt-4 md:pt-6">
-
                     {{ $slot }}
-
                 </div>
 
                 <!-- FOOTER -->
-                <div class="flex items-center space-x-4 border-t border-default pt-4 md:pt-6">
+                <div class="flex items-center gap-3 border-t border-default pt-4 md:pt-6">
 
-                    <button
-                        type="submit"
-                        class="text-white bg-brand hover:bg-brand-strong border border-transparent focus:ring-4 focus:ring-brand-medium shadow-xs font-medium rounded-base text-sm px-4 py-2.5"
-                    >
-                        Simpan
-                    </button>
+                    <x-button type="submit">
+                        {{ $submitLabel }}
+                    </x-button>
 
-                    <button
-                        data-modal-hide="{{ $id }}"
-                        type="button"
-                        class="text-body bg-neutral-secondary-medium border border-default-medium hover:bg-neutral-tertiary-medium rounded-base text-sm px-4 py-2.5"
-                    >
-                        Cancel
-                    </button>
+                    <x-button variant="outline" type="button" data-modal-hide="{{ $id }}">
+                        {{ $cancelLabel }}
+                    </x-button>
 
                 </div>
 

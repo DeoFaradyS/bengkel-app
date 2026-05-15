@@ -17,7 +17,7 @@
             <x-tables.tr>
                 <x-tables.td>{{ $loop->iteration }}</x-tables.td>
                 <x-tables.td>{{ $booking->user->name }}</x-tables.td>
-                <x-tables.td>{{ $booking->vehicle_type }}</x-tables.td>
+                <x-tables.td>{{ ucfirst($booking->type) }}</x-tables.td>
                 <x-tables.td>{{ $booking->booking_date }}</x-tables.td>
                 <x-tables.td>{{ $booking->booking_time }}</x-tables.td>
                 <x-tables.td>{{ ucfirst($booking->status) }}</x-tables.td>

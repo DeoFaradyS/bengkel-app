@@ -6,8 +6,8 @@
             <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-3">Page not found</h2>
             <p class="text-gray-500 mb-8">Sorry, the page you're looking for doesn't exist or has been moved.</p>
             <div class="flex justify-center gap-3">
-                <x-ui.button href="{{ url('/') }}">← Back to Home</x-ui.button>
-                <x-ui.button href="{{ url()->previous() }}" variant="outline">Go Back</x-ui.button>
+                <x-button href="{{ url('/') }}">← Back to Home</x-button>
+                <x-button href="{{ url()->previous() }}" variant="outline">Go Back</x-button>
             </div>
         </div>
     </section>

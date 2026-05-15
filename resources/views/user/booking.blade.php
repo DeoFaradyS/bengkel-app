@@ -13,7 +13,7 @@
 
         @forelse ($bookings as $booking)
             <x-tables.tr>
-                <x-tables.td>{{ $booking->vehicle_type }}</x-tables.td>
+                <x-tables.td>{{ ucword($booking->type) }}</x-tables.td>
                 <x-tables.td>{{ $booking->booking_date }}</x-tables.td>
                 <x-tables.td>{{ $booking->booking_time }}</x-tables.td>
                 <x-tables.td>{{ $booking->complaint }}</x-tables.td>
