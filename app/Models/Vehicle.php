@@ -16,7 +16,6 @@ class Vehicle extends Model
         'brand',
         'model',
         'year',
-        'type',
         'image',
     ];
 

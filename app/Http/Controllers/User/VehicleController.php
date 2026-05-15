@@ -32,7 +32,6 @@ class VehicleController extends Controller
             'brand' => 'required|string|max:100',
             'model' => 'required|string|max:100',
             'year' => 'required|digits:4|integer|min:1900|max:' . date('Y'),
-            'type' => 'required|in:sedan,suv,mpv,pickup,truck',
         ]);
 
         $validated['user_id'] = auth()->id();
@@ -52,12 +51,11 @@ class VehicleController extends Controller
             'brand' => 'required|string|max:100',
             'model' => 'required|string|max:100',
             'year' => 'required|digits:4|integer|min:1900|max:' . date('Y'),
-            'type' => 'required|in:sedan,suv,mpv,pickup,truck',
         ]);
 
         $vehicle->update($validated);
 
-        return redirect()->route('user.vehicles.index')  // ← fix
+        return redirect()->route('user.vehicles.index')
             ->with('success', 'Kendaraan berhasil diupdate.');
     }
 

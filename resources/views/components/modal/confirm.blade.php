@@ -40,15 +40,10 @@
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 13V8m0 8h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
                 </svg>
 
-                <h3 id="{{ $id }}-title" class="mb-2 text-body font-medium">
+                <h3 id="{{ $id }}-title" class="mb-6 text-body">
                     {{ $message }}
                 </h3>
 
-                <p class="mb-6 text-muted">
-                    {{ $description }}
-                </p>
-
-                {{-- Form di luar flex agar tidak jadi flex item --}}
                 <form id="{{ $id }}-form" action="{{ $action }}" method="POST">
                     @csrf
                     @method($method)

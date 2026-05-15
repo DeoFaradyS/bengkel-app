@@ -16,7 +16,7 @@
         </x-slot:search>
 
         <x-slot:head>
-            <x-table.header :columns="['License Plate', 'Brand', 'Model', 'Year', 'Type', 'Action']" />
+            <x-table.header :columns="['License Plate', 'Brand', 'Model', 'Year', 'Action']" />
         </x-slot:head>
 
         <x-slot:body>
@@ -28,7 +28,6 @@
                         $vehicle->brand,
                         $vehicle->model,
                         $vehicle->year,
-                        $vehicle->type,
                     ]"
                     :isLast="$loop->last"
                 >
@@ -40,7 +39,6 @@
                                 'brand'         => $vehicle->brand,
                                 'model'         => $vehicle->model,
                                 'year'          => $vehicle->year,
-                                'type'          => $vehicle->type,
                             ]"
                             :updateRoute="route('user.vehicles.update', $vehicle)"
                             :deleteUrl="route('user.vehicles.destroy', $vehicle)"
@@ -108,23 +106,6 @@
                 required
             />
 
-            <x-forms.select
-                id="create_type"
-                name="type"
-                label="Tipe"
-                placeholder="Pilih tipe kendaraan"
-                :selected="old('type')"
-                :error="$errors->first('type')"
-                :required="true"
-                :options="[
-                    'sedan'  => 'Sedan',
-                    'suv'    => 'SUV',
-                    'mpv'    => 'MPV',
-                    'pickup' => 'Pickup',
-                    'truck'  => 'Truck',
-                ]"
-            />
-
         </div>
     </x-modal.form>
 
@@ -174,21 +155,6 @@
             required
         />
 
-        <x-forms.select
-            id="edit_type"
-            name="type"
-            label="Tipe"
-            placeholder="Pilih tipe kendaraan"
-            :required="true"
-            :options="[
-                'sedan'  => 'Sedan',
-                'suv'    => 'SUV',
-                'mpv'    => 'MPV',
-                'pickup' => 'Pickup',
-                'truck'  => 'Truck',
-            ]"
-        />
-
     </div>
 </x-modal.form>
 
@@ -197,8 +163,7 @@
     <x-modal.confirm
         id="modal-delete-vehicle"
         action=""
-        message="Hapus kendaraan ini?"
-        description="Data kendaraan akan dihapus permanen."
+        message="Yakin ingin menghapus kendaraan ini? Tindakan ini tidak dapat dibatalkan."
     />
 
 
@@ -219,9 +184,6 @@
                     modal.querySelector('#edit_brand').value         = btn.dataset.brand ?? '';
                     modal.querySelector('#edit_model').value         = btn.dataset.model ?? '';
                     modal.querySelector('#edit_year').value          = btn.dataset.year ?? '';
-
-                    select.value = btn.dataset.type ?? '';
-                    select.dispatchEvent(new Event('change'));
                 });
             });
 
