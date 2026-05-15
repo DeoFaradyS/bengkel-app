@@ -1,5 +1,5 @@
 <x-layouts.dashboard title="Vehicles">
-    <x-header title="Vehicles" description="Manage your vehicles" />
+    <x-header title="Vehicles" description="View and manage your registered vehicles." />
 
     <x-table>
 
