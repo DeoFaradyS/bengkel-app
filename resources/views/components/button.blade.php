@@ -45,7 +45,7 @@
 @endphp
 
 @if ($href)
-    
+    <a
         href="{{ $disabled ? null : $href }}"
         aria-disabled="{{ $disabled ? 'true' : 'false' }}"
         {{ $attributes->except(['icon', 'iconPosition', 'iconOnly', 'disabled', 'href', 'type'])->merge(['class' => $classes]) }}
