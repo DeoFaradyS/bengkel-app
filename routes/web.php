@@ -9,7 +9,7 @@ use App\Http\Controllers\Admin\SparepartController;
 // Controllers below will be uncommented once created
 // use App\Http\Controllers\Admin\FinanceController;
 // use App\Http\Controllers\Admin\ProductController;
-// use App\Http\Controllers\Admin\ServiceController;
+use App\Http\Controllers\Admin\ServiceController;
 // use App\Http\Controllers\Admin\CustomerController;
 use App\Http\Controllers\User\VehicleController;
 use App\Http\Controllers\User\ProfileController;
@@ -83,8 +83,9 @@ Route::prefix('admin')
         // TODO: buat ProductController
         Route::get('/products', fn() => view('coming-soon', ['title' => 'Product']))->name('products.index');
 
-        // TODO: buat ServiceController
-        Route::get('/services', fn() => view('coming-soon', ['title' => 'Service']))->name('services.index');
+        // Services
+        Route::resource('services', ServiceController::class)
+            ->only(['index', 'store', 'update', 'destroy']);
 
         // TODO: buat CustomerController
         Route::get('/customers', fn() => view('coming-soon', ['title' => 'Customer']))->name('customers.index');

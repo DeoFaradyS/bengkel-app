@@ -13,8 +13,12 @@
                     [
                         ['label' => 'Dashboard', 'icon' => 'dashboard', 'route' => 'admin.dashboard'],
                         ['label' => 'Finance',   'icon' => 'finance',   'route' => 'admin.finances.index'],
+                    ],
+                    [
                         ['label' => 'Booking',   'icon' => 'calendar',  'route' => 'admin.bookings.index'],
                         ['label' => 'Product',   'icon' => 'product',   'route' => 'admin.products.index'],
+                    ],
+                    [
                         ['label' => 'Service',   'icon' => 'service',   'route' => 'admin.services.index'],
                         ['label' => 'Customer',  'icon' => 'customer',  'route' => 'admin.customers.index'],
                     ],
