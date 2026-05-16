@@ -10,8 +10,16 @@ class Sparepart extends Model
     use HasFactory; // ⬅️ WAJIB BANGET
 
     protected $fillable = [
-        'nama',
-        'stok',
-        'harga',
+        'name',
+        'category',
+        'part_number',
+        'brand',
+        'stock',
+        'price',
+        'unit',
+        'condition',
+        'stock_minimum',
+        'status',
+        'description',
     ];
 }

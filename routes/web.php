@@ -87,9 +87,8 @@ Route::prefix('admin')
         Route::resource('services', ServiceController::class)
             ->only(['index', 'store', 'update', 'destroy']);
 
-        // TODO: buat CustomerController
-        Route::get('/customers', fn() => view('coming-soon', ['title' => 'Customer']))->name('customers.index');
-
+        // Customers
+        Route::get('/customers', [UserController::class, 'index'])->name('customers.index');
     });
 
 

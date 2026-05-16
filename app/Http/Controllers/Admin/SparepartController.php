@@ -58,7 +58,7 @@ class SparepartController extends Controller
         return redirect()
             ->route('admin.spareparts.index')
             ->with('success', 'Sparepart berhasil diperbarui');
-    }
+    }   
 
     public function destroy(Sparepart $sparepart)
     {
