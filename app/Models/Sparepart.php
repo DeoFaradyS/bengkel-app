@@ -3,11 +3,11 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Factories\HasFactory; // ⬅️ tambahin ini
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Sparepart extends Model
 {
-    use HasFactory; // ⬅️ WAJIB BANGET
+    use HasFactory;
 
     protected $fillable = [
         'name',
@@ -15,10 +15,10 @@ class Sparepart extends Model
         'part_number',
         'brand',
         'stock',
+        'stock_minimum',
         'price',
         'unit',
         'condition',
-        'stock_minimum',
         'status',
         'description',
     ];

@@ -5,12 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\BookingController;
 use App\Http\Controllers\Admin\SparepartController;
-
-// Controllers below will be uncommented once created
-// use App\Http\Controllers\Admin\FinanceController;
-// use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ServiceController;
-// use App\Http\Controllers\Admin\CustomerController;
 use App\Http\Controllers\User\VehicleController;
 use App\Http\Controllers\User\ProfileController;
 
@@ -77,11 +72,12 @@ Route::prefix('admin')
         Route::resource('bookings', BookingController::class)->only(['index', 'show']);
         Route::patch('/bookings/{id}/{status}', [BookingController::class, 'updateStatus'])->name('bookings.updateStatus');
 
-        // TODO: buat FinanceController
+        // Finance
         Route::get('/finances', fn() => view('coming-soon', ['title' => 'Finance']))->name('finances.index');
 
-        // TODO: buat ProductController
-        Route::get('/products', fn() => view('coming-soon', ['title' => 'Product']))->name('products.index');
+        // Spareparts
+        Route::resource('spareparts', SparepartController::class)
+            ->only(['index', 'store', 'update', 'destroy']);
 
         // Services
         Route::resource('services', ServiceController::class)

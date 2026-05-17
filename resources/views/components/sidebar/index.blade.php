@@ -16,7 +16,7 @@
                     ],
                     [
                         ['label' => 'Booking',   'icon' => 'calendar',  'route' => 'admin.bookings.index'],
-                        ['label' => 'Product',   'icon' => 'product',   'route' => 'admin.products.index'],
+                        ['label' => 'Sparepart', 'icon' => 'product', 'route' => 'admin.spareparts.index'],
                     ],
                     [
                         ['label' => 'Service',   'icon' => 'service',   'route' => 'admin.services.index'],

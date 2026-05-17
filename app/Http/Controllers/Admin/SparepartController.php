@@ -8,64 +8,62 @@ use Illuminate\Http\Request;
 
 class SparepartController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $spareparts = Sparepart::latest()->get();
+        $spareparts = Sparepart::query()
+            ->when($request->search, fn($q) => $q->where('name', 'like', '%' . $request->search . '%'))
+            ->latest()
+            ->paginate(10)
+            ->withQueryString();
 
-        return view('admin.spareparts.index', compact('spareparts'));
-    }
-
-    public function create()
-    {
-        return view('admin.spareparts.create');
+        return view('admin.spareparts', compact('spareparts'));
     }
 
     public function store(Request $request)
-    {
-        $validated = $request->validate([
-            'nama' => 'required|string|max:255',
-            'stok' => 'required|integer|min:0',
-            'harga' => 'required|numeric|min:0',
-        ]);
+{
+    $validated = $request->validate([
+        'name'          => 'required|string|max:255',
+        'category'      => 'required|string',
+        'part_number'   => 'nullable|string|max:100',
+        'brand'         => 'required|string|max:100',
+        'stock'         => 'required|integer|min:0',
+        'stock_minimum' => 'required|integer|min:0',
+        'price'         => 'required|integer|min:0',
+        'unit'          => 'required|string',
+        'condition'     => 'required|in:new,used',
+        'description'   => 'nullable|string',
+    ]);
 
-        Sparepart::create($validated);
+    Sparepart::create($validated);
 
-        return redirect()
-            ->route('admin.spareparts.index')
-            ->with('success', 'Sparepart berhasil ditambahkan');
-    }
-
-    public function show(Sparepart $sparepart)
-    {
-        return view('admin.spareparts.show', compact('sparepart'));
-    }
-
-    public function edit(Sparepart $sparepart)
-    {
-        return view('admin.spareparts.edit', compact('sparepart'));
-    }
+    return back()->with('success', 'Sparepart berhasil ditambahkan.');
+}
 
     public function update(Request $request, Sparepart $sparepart)
     {
         $validated = $request->validate([
-            'nama' => 'required|string|max:255',
-            'stok' => 'required|integer|min:0',
-            'harga' => 'required|numeric|min:0',
+            'name'          => 'required|string|max:255',
+            'category'      => 'required|string',
+            'part_number'   => 'nullable|string|max:100',
+            'brand'         => 'required|string|max:100',
+            'stock'         => 'required|integer|min:0',
+            'stock_minimum' => 'required|integer|min:0',
+            'price'         => 'required|integer|min:0',
+            'unit'          => 'required|string',
+            'condition'     => 'required|in:new,used',
+            'status'        => 'required|in:active,inactive',
+            'description'   => 'nullable|string',
         ]);
 
         $sparepart->update($validated);
 
-        return redirect()
-            ->route('admin.spareparts.index')
-            ->with('success', 'Sparepart berhasil diperbarui');
-    }   
+        return back()->with('success', 'Sparepart berhasil diupdate.');
+    }
 
     public function destroy(Sparepart $sparepart)
     {
         $sparepart->delete();
 
-        return redirect()
-            ->route('admin.spareparts.index')
-            ->with('success', 'Sparepart berhasil dihapus');
+        return back()->with('success', 'Sparepart berhasil dihapus.');
     }
 }
